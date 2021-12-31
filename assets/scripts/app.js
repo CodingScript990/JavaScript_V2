@@ -14,7 +14,7 @@ currentResult += (10) * 3 / 2 - 1; // 10 * 3 = 30 / 2 = 15 - 1 = 14
     = : Assign value to variable
 */
 
-let calculationDescription = '(' + defaultResult + ' + 10) * 3 / 2 - 1'; // String
+let calculationDescription = `( ${defaultResult} + 10) * 3 / 2 - 1`; // String
 
 outputResult(currentResult, calculationDescription); 
 
