@@ -5,9 +5,11 @@ let currentResult = defaultResult; // not change value
 // custom function
 
 function add() { // function name(parameter) { result; }
-    currentResult = currentResult + userInput.value; // 0 + something??(input write...)
+    currentResult = currentResult + parseInt(userInput.value); // 0 + parseInt(input write...)
     //alert('The result is ' + rs); // call(rs[const])
-    outputResult(currentResult, ''); // The output (0 + '' >> string >> Final output >> 01)
+    outputResult(currentResult, ''); 
+    // The output (0 + '' >> string >> Final output >> 01) => userInput.value
+    // The output (0 + '' >> int >> Final output >> 2) => parseInt(userInput.value)
     //return rs; // element + element
 }
 
