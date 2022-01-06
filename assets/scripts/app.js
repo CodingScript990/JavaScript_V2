@@ -1,16 +1,59 @@
-const defaultResult = 0; // const inital value === 0
-let currentResult = defaultResult; // not change value
+const defaultResult = 0; // const initial value === 0
+let currentResult = defaultResult; // not change value / first value
 //let rs; // result value(initial)
+
+// Type Change Mehtod Function / Gets input from input field
+function getUserNumberInput() {
+  return parseInt(userInput.value);
+}
+
+// Create Write Output[Repeate work] function / Generates and writes calculation log
+
+function createAndWriteOutput(operator, resultBeforeCalc, calcNumber) {
+  const calcDescription = `${resultBeforeCalc} ${operator} ${calcNumber}`; // total value = first value, operator, last value
+  outputResult(currentResult, calcDescription); // result(initial value, write value) / from vendor file
+}
 
 // custom function
 
-function add() { // function name(parameter) { result; }
-    currentResult = currentResult + parseInt(userInput.value); // 0 + parseInt(input write...)
-    //alert('The result is ' + rs); // call(rs[const])
-    outputResult(currentResult, ''); 
-    // The output (0 + '' >> string >> Final output >> 01) => userInput.value
-    // The output (0 + '' >> int >> Final output >> 2) => parseInt(userInput.value)
-    //return rs; // element + element
+// plus
+
+function add() {
+  // function name(parameter) { result; }
+  const enteredNumber = getUserNumberInput(); // last value
+  const initialResult = currentResult;
+  currentResult = currentResult + enteredNumber; // 0 + parseInt(input write...)
+  //alert('The result is ' + rs); // call(rs[const])
+  createAndWriteOutput("+", initialResult, enteredNumber);
+  // The output (0 + '' >> string >> Final output >> 01) => userInput.value
+  // The output (0 + '' >> int >> Final output >> 2) => parseInt(userInput.value)
+  //return rs; // element + element
+}
+
+// substract
+
+function subtract() {
+  const enteredNumber = getUserNumberInput(); // last value
+  const initialResult = currentResult;
+  currentResult = currentResult - enteredNumber; // 0 + parseInt(input write...)
+  //alert('The result is ' + rs); // call(rs[const])
+  createAndWriteOutput("-", initialResult, enteredNumber);
+}
+
+function multiply() {
+  const enteredNumber = getUserNumberInput(); // last value
+  const initialResult = currentResult;
+  currentResult = currentResult * enteredNumber; // 0 + parseInt(input write...)
+  //alert('The result is ' + rs); // call(rs[const])
+  createAndWriteOutput("*", initialResult, enteredNumber);
+}
+
+function divide() {
+  const enteredNumber = getUserNumberInput(); // last value
+  const initialResult = currentResult;
+  currentResult = currentResult / enteredNumber; // 0 + parseInt(input write...)
+  //alert('The result is ' + rs); // call(rs[const])
+  createAndWriteOutput("/", initialResult, enteredNumber);
 }
 
 // alert(rs); // reference error! To output, can call after calling a function!
@@ -34,12 +77,14 @@ function add() { // function name(parameter) { result; }
     = : Assign value to variable
     */
 
-    //let calculationDescription = `( ${defaultResult} + 10) * 3 / 2 - 1`; // String
+//let calculationDescription = `( ${defaultResult} + 10) * 3 / 2 - 1`; // String
 
-    addBtn.addEventListener('click', add); // addEventListener : function that causes an event
+addBtn.addEventListener("click", add); // addEventListener : function that causes an event
+subtractBtn.addEventListener("click", subtract); // subtractEventListener : function
+multiplyBtn.addEventListener("click", multiply); // multiplyEventListener : function
+divideBtn.addEventListener("click", divide); // divideEventListener : function
 
-
-   // let currentResult = defaultResult; [Error]
+// let currentResult = defaultResult; [Error]
 /*
     [Data Types]
     1. Numbers : 2,-2, 22.222 - Important for calculations and code
