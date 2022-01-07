@@ -1,6 +1,7 @@
 const defaultResult = 0; // const initial value === 0
 let currentResult = defaultResult; // not change value / first value
 //let rs; // result value(initial)
+let logEntries = []; // Arrays
 
 // Type Change Mehtod Function / Gets input from input field
 function getUserNumberInput() {
@@ -22,12 +23,17 @@ function add() {
   // function name(parameter) { result; }
   const enteredNumber = getUserNumberInput(); // last value
   const initialResult = currentResult;
-  currentResult = currentResult + enteredNumber; // 0 + parseInt(input write...)
+  currentResult += enteredNumber; // 0 + parseInt(input write...)
   //alert('The result is ' + rs); // call(rs[const])
+  //   currentResult++; increment ceremony / ++currentResult;
+  //   currentResult--; decrement ceremony / --currentResult;
   createAndWriteOutput("+", initialResult, enteredNumber);
   // The output (0 + '' >> string >> Final output >> 01) => userInput.value
   // The output (0 + '' >> int >> Final output >> 2) => parseInt(userInput.value)
   //return rs; // element + element
+  //   logEntries = [enteredNumber]; array
+  logEntries.push(enteredNumber);
+  console.log(logEntries[1]);
 }
 
 // substract
@@ -35,7 +41,7 @@ function add() {
 function subtract() {
   const enteredNumber = getUserNumberInput(); // last value
   const initialResult = currentResult;
-  currentResult = currentResult - enteredNumber; // 0 + parseInt(input write...)
+  currentResult -= enteredNumber; // 0 + parseInt(input write...)
   //alert('The result is ' + rs); // call(rs[const])
   createAndWriteOutput("-", initialResult, enteredNumber);
 }
@@ -43,7 +49,7 @@ function subtract() {
 function multiply() {
   const enteredNumber = getUserNumberInput(); // last value
   const initialResult = currentResult;
-  currentResult = currentResult * enteredNumber; // 0 + parseInt(input write...)
+  currentResult *= enteredNumber; // 0 + parseInt(input write...)
   //alert('The result is ' + rs); // call(rs[const])
   createAndWriteOutput("*", initialResult, enteredNumber);
 }
@@ -51,7 +57,7 @@ function multiply() {
 function divide() {
   const enteredNumber = getUserNumberInput(); // last value
   const initialResult = currentResult;
-  currentResult = currentResult / enteredNumber; // 0 + parseInt(input write...)
+  currentResult /= enteredNumber; // 0 + parseInt(input write...)
   //alert('The result is ' + rs); // call(rs[const])
   createAndWriteOutput("/", initialResult, enteredNumber);
 }
@@ -90,4 +96,12 @@ divideBtn.addEventListener("click", divide); // divideEventListener : function
     1. Numbers : 2,-2, 22.222 - Important for calculations and code
     2. Strings(Text) : 'Hi', "Hi", `Hi` - Important for outputting results, gathering input
     3. 
+*/
+/*
+    [Data Type]
+    1. Numbers : Important for cclculations and code where u need to "work with a number"
+    2. Strings : Important for outputting results, gathering input
+    3. Booleans : Important for conditional code and situations where u only have 2 options
+    4. Objects : Important for grouped/related data, helps u with oranizing data
+    5. Arrays : Important for list data, unknown amounts of data
 */
