@@ -32,8 +32,15 @@ function add() {
   // The output (0 + '' >> int >> Final output >> 2) => parseInt(userInput.value)
   //return rs; // element + element
   //   logEntries = [enteredNumber]; array
-  logEntries.push(enteredNumber);
-  console.log(logEntries[1]);
+  const logEntry = {
+    operation: "ADD", // operation ? ADD
+    prevResult: initialResult, // prevResult value ? initialResult value
+    number: enteredNumber, // number ? enteredNumber value
+    result: currentResult, // result ? currentResult value
+  }; // Objects
+  logEntries.push(logEntry); // Objects
+  //console.log(logEntry.operation); // Object.data
+  console.log(logEntries);
 }
 
 // substract
@@ -104,4 +111,23 @@ divideBtn.addEventListener("click", divide); // divideEventListener : function
     3. Booleans : Important for conditional code and situations where u only have 2 options
     4. Objects : Important for grouped/related data, helps u with oranizing data
     5. Arrays : Important for list data, unknown amounts of data
+*/
+/*
+    [Objects - Common Syntax]
+
+    1. group the data ({};) / semicolon is used after if the are on the right side of the equal sign
+    2. separated via a comma, Not via a semicolon. syntax error
+    3. via a colon Not via an equal sign syntax error
+    
+    ex) [error]
+    const worstPossibleUser = {
+        name = 'Kim';
+        age = 30;
+    };
+
+    [perfect]
+    const worstPossibleUser = {
+        name = 'kim',
+        age = 30
+    };
 */
