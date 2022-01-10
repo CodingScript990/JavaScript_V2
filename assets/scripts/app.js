@@ -15,6 +15,23 @@ function createAndWriteOutput(operator, resultBeforeCalc, calcNumber) {
   outputResult(currentResult, calcDescription); // result(initial value, write value) / from vendor file
 }
 
+function writeToLog(
+  operationIdentifier, // operation
+  prevResult, // prevResult value(past value)
+  operationNumber, // input value(client use value === present value)
+  newResult // result value
+) {
+  const logEntry = {
+    operation: operationIdentifier, // operation ? ADD, SUBTRACT, MULTIPLY, DIVIDE
+    prevResult: prevResult, // prevResult value ? initialResult value
+    number: operationNumber, // number ? enteredNumber value
+    result: newResult, // result ? currentResult value
+  }; // Objects
+  logEntries.push(logEntry); // Objects
+  //console.log(logEntry.operation); // Object.data
+  console.log(logEntries);
+}
+
 // custom function
 
 // plus
@@ -32,15 +49,7 @@ function add() {
   // The output (0 + '' >> int >> Final output >> 2) => parseInt(userInput.value)
   //return rs; // element + element
   //   logEntries = [enteredNumber]; array
-  const logEntry = {
-    operation: "ADD", // operation ? ADD
-    prevResult: initialResult, // prevResult value ? initialResult value
-    number: enteredNumber, // number ? enteredNumber value
-    result: currentResult, // result ? currentResult value
-  }; // Objects
-  logEntries.push(logEntry); // Objects
-  //console.log(logEntry.operation); // Object.data
-  console.log(logEntries);
+  writeToLog("ADD", initialResult, enteredNumber, currentResult);
 }
 
 // substract
@@ -51,6 +60,7 @@ function subtract() {
   currentResult -= enteredNumber; // 0 + parseInt(input write...)
   //alert('The result is ' + rs); // call(rs[const])
   createAndWriteOutput("-", initialResult, enteredNumber);
+  writeToLog("SUBTRACT", initialResult, enteredNumber, currentResult);
 }
 
 function multiply() {
@@ -59,6 +69,7 @@ function multiply() {
   currentResult *= enteredNumber; // 0 + parseInt(input write...)
   //alert('The result is ' + rs); // call(rs[const])
   createAndWriteOutput("*", initialResult, enteredNumber);
+  writeToLog("MULTIPLY", initialResult, enteredNumber, currentResult);
 }
 
 function divide() {
@@ -67,6 +78,7 @@ function divide() {
   currentResult /= enteredNumber; // 0 + parseInt(input write...)
   //alert('The result is ' + rs); // call(rs[const])
   createAndWriteOutput("/", initialResult, enteredNumber);
+  writeToLog("DIVIDE", initialResult, enteredNumber, currentResult);
 }
 
 // alert(rs); // reference error! To output, can call after calling a function!
