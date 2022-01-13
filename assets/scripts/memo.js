@@ -81,3 +81,59 @@
     1. async : First, downloaded order [먼저]
     2. defer : Do it in the order defined [정해진]
 */
+/*
+    [Mastering Development]
+    
+    ✔ Write Code Efficiently
+    
+    1. Work in a productive environment
+    2. Auto-format code & use shortcuts
+    3. Use auto-completion and hints
+    4. Explore extensions & settings
+
+    ✔ Find Help
+
+    1. Use MDN
+    2. Learn how to google
+    3. Ask proper questions, help others
+    4. Trial & Error
+    
+    ✔ Debug Code
+
+    1. Read and utilize error message
+    2. Use console.log() to gain insights into code
+    3. Use the debugging tools
+    4. Use IDEs debugging capabilities
+*/
+/*
+    [if] Statements & Boolean Ooperator
+
+    == : Check for value equality
+    != : Check for value inquality
+    === and !== : Check for value And type equality
+    >&< : Check for value being greater / smaller
+    >= & <= : Check for value being greater or equal / smaller or equal
+    ! : Check if Not true
+
+    ex)
+    2 == 2 true
+    2 == '2' true ????
+    2 != 2 false
+    2 != '2' false
+
+    2 === 2 true
+    2 === '2' false
+    2 !== 2 false
+    2 !== '2' true
+
+    3 > 2 true
+    4 < 2 false
+
+    4 >= 2 true
+    4 >= 2 false
+
+    !4 false
+    2 === !2 false
+    !2 === !2 true
+
+*/

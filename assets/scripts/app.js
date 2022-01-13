@@ -10,7 +10,7 @@ function getUserNumberInput() {
 
 // Create Write Output[Repeate work] function / Generates and writes calculation log
 
-function createAndWriteOutput(operator, resultBeforeCalc, calcNumber) {
+function createAndOutput(operator, resultBeforeCalc, calcNumber) {
   const calcDescription = `${resultBeforeCalc} ${operator} ${calcNumber}`; // total value = first value, operator, last value
   outputResult(currentResult, calcDescription); // result(initial value, write value) / from vendor file
 }
@@ -32,53 +32,93 @@ function writeToLog(
   console.log(logEntries);
 }
 
+// calculation function
+
+function calculateResult(calculationType) {
+  // function name(parameter) { result; }
+  const enteredNumber = getUserNumberInput(); // last value
+  const initialResult = currentResult;
+  //console.log("INPUT", enteredNumber, currentResult); checking my code using log function
+  const methOperator; // operator
+
+  // if
+  if (calculationType === "ADD") {
+    currentResult += enteredNumber; // 0 + parseInt(input write...)
+    methOperator = "+";
+  } else if (calculationType === "SUBTRACT"){
+    currentResult -= enteredNumber;
+    methOperator = "-";
+  } else if (calculationType === "MULTIPLY"){
+    currentResult *= enteredNumber;
+    methOperator = "*";
+  } else if (calculationType === "DIVIDE"){
+    currentResult /= enteredNumber;
+    methOperator = "/";
+  }
+
+  //alert('The result is ' + rs); // call(rs[const])
+  //   currentResult++; increment ceremony / ++currentResult;
+  //   currentResult--; decrement ceremony / --currentResult;
+  createAndWriteOutput(methOperator, initialResult, enteredNumber);
+  // The output (0 + '' >> string >> Final output >> 01) => userInput.value
+  // The output (0 + '' >> int >> Final output >> 2) => parseInt(userInput.value)
+  //return rs; // element + element
+  //   logEntries = [enteredNumber]; array
+  writeToLog(calculationType, initialResult, enteredNumber, currentResult);
+}
+
 // custom function
 
 // plus
 
 function add() {
   // function name(parameter) { result; }
-  const enteredNumber = getUserNumberInput(); // last value
-  const initialResult = currentResult;
-  currentResult += enteredNumber; // 0 + parseInt(input write...)
+  //const enteredNumber = getUserNumberInput(); // last value
+  //const initialResult = currentResult;
+  //console.log("INPUT", enteredNumber, currentResult); checking my code using log function
+  //currentResult += enteredNumber; // 0 + parseInt(input write...)
   //alert('The result is ' + rs); // call(rs[const])
   //   currentResult++; increment ceremony / ++currentResult;
   //   currentResult--; decrement ceremony / --currentResult;
-  createAndWriteOutput("+", initialResult, enteredNumber);
+  //createAndWriteOutput("+", initialResult, enteredNumber);
   // The output (0 + '' >> string >> Final output >> 01) => userInput.value
   // The output (0 + '' >> int >> Final output >> 2) => parseInt(userInput.value)
   //return rs; // element + element
   //   logEntries = [enteredNumber]; array
-  writeToLog("ADD", initialResult, enteredNumber, currentResult);
+  //writeToLog("ADD", initialResult, enteredNumber, currentResult);
+  calculateResult('ADD');
 }
 
 // substract
 
 function subtract() {
-  const enteredNumber = getUserNumberInput(); // last value
-  const initialResult = currentResult;
-  currentResult -= enteredNumber; // 0 + parseInt(input write...)
+  // const enteredNumber = getUserNumberInput(); // last value
+  // const initialResult = currentResult;
+  // currentResult -= enteredNumber; // 0 + parseInt(input write...)
   //alert('The result is ' + rs); // call(rs[const])
-  createAndWriteOutput("-", initialResult, enteredNumber);
-  writeToLog("SUBTRACT", initialResult, enteredNumber, currentResult);
+  // createAndWriteOutput("-", initialResult, enteredNumber);
+  // writeToLog("SUBTRACT", initialResult, enteredNumber, currentResult);
+  calculateResult('SUBTRACT');
 }
 
 function multiply() {
-  const enteredNumber = getUserNumberInput(); // last value
-  const initialResult = currentResult;
-  currentResult *= enteredNumber; // 0 + parseInt(input write...)
+  // const enteredNumber = getUserNumberInput(); // last value
+  // const initialResult = currentResult;
+  // currentResult *= enteredNumber; // 0 + parseInt(input write...)
   //alert('The result is ' + rs); // call(rs[const])
-  createAndWriteOutput("*", initialResult, enteredNumber);
-  writeToLog("MULTIPLY", initialResult, enteredNumber, currentResult);
+  // createAndWriteOutput("*", initialResult, enteredNumber);
+  // writeToLog("MULTIPLY", initialResult, enteredNumber, currentResult);
+  calculateResult('MULTIPLY');
 }
 
 function divide() {
-  const enteredNumber = getUserNumberInput(); // last value
-  const initialResult = currentResult;
-  currentResult /= enteredNumber; // 0 + parseInt(input write...)
+  // const enteredNumber = getUserNumberInput(); // last value
+  // const initialResult = currentResult;
+  // currentResult /= enteredNumber; // 0 + parseInt(input write...)
   //alert('The result is ' + rs); // call(rs[const])
-  createAndWriteOutput("/", initialResult, enteredNumber);
-  writeToLog("DIVIDE", initialResult, enteredNumber, currentResult);
+  // createAndWriteOutput("/", initialResult, enteredNumber);
+  // writeToLog("DIVIDE", initialResult, enteredNumber, currentResult);
+  calculateResult('DIVIDE');
 }
 
 // alert(rs); // reference error! To output, can call after calling a function!
