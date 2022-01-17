@@ -40,6 +40,8 @@
     % : Divide two numbers, yield remainder
     ** : Exponentiation(e.g. 2 ** 3 = 8)
     = : Assign value to variable
+    +=,-=,... : Perform calculation and re-assign result to variable
+    ++,-- : Increment / Decrement variable value + re-assign
 */
 /*
     [Null / Undefined / NaN]
@@ -136,4 +138,54 @@
     2 === !2 false
     !2 === !2 true
 
+*/
+/*
+    [Beware of Objects & Arrays in Comparisons]
+
+    Object == OR === Object => true? Not true!
+    -> Objects and arrays are kind of special in Javascript!
+*/
+/*
+    [Combining Conditions]
+    
+    ex)
+    
+    A AND B OR C
+    name === 'kim' && age === 30 || isAdmin
+
+    - Part1 : A,B,C >> yields true if each condition yields true
+    - Part2 : name, age, isAdmin >> Evaluated as an alternative
+    - Yields true if Part 1 OR Part 2 yields true
+*/
+/*
+    [Operator Precedence]
+
+    ex)
+
+    5 == 5 && 3 > 6 || 10 > 5
+    true    false    true  ==> final type "true"
+*/
+/*
+    [true, false]
+
+    - Javascript Conditions work with Booleans(true/false) OR with "falsy"/"truthy" values
+    
+    ex1)
+    const nameInput = 'kim';
+    if(nameInput === 'kim') {...};
+    => Yields true
+
+    ex2)
+    const nameInput = 'kim';
+    if(nameInput) {...};
+    => Yields a string, NOT a boolean
+
+    [FAlsy and Truthy Values]
+
+    0 >> false
+    Any other number >> true
+    ""(empty string) >> false
+    Any other non-empty string >> true
+    {},[] & all other objects or arrays >> true
+    null, understand, NaN >> false
 */

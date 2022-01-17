@@ -35,8 +35,17 @@ function writeToLog(
 // calculation function
 
 function calculateResult(calculationType) {
-  // function name(parameter) { result; }
+
   const enteredNumber = getUserNumberInput(); // last value
+
+  // AND, OR data type Comparison
+
+  if(calculationType !== 'ADD' && calculationType !== 'SUBTRACT' && calculationType !== 'MULTIPLY' && calculationType !== 'DIVIDE' || !enteredNumber) {
+    return;
+  }
+
+  // if(calculationType !== 'ADD' || calculationType === 'SUBTRACT' || calculationType === 'MULTIPLY' || calculationType === 'DIVIDE') {
+     // function name(parameter) { result; }
   const initialResult = currentResult;
   //console.log("INPUT", enteredNumber, currentResult); checking my code using log function
   const methOperator; // operator
@@ -65,6 +74,8 @@ function calculateResult(calculationType) {
   //return rs; // element + element
   //   logEntries = [enteredNumber]; array
   writeToLog(calculationType, initialResult, enteredNumber, currentResult);
+  //}
+
 }
 
 // custom function
