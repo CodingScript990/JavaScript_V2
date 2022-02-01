@@ -214,7 +214,44 @@ function healPlayerHandler() {
 
 // printLogHandler
 function printLogHandler() {
-  console.log(battleLog);
+  // for 1. [for]
+  // for (let i = 0; i < battleLog.length; i++) {
+  //   console.log(battleLog[i]);
+  // }
+
+  // for 2. [for-of]
+  let i = 0; // initialVal = 0;
+  /* 
+  for (const logEntry of battleLog) {
+    console.log(logEntry);
+    console.log(i);
+    i++; // 0 + 1 / 1 + 1 / 2 + 1 ... increase
+  }
+  */
+
+  // for 3. [for-in]
+  for (const logEntry of battleLog) {
+    console.log(`#${i++}`); // increase
+    for (const key in logEntry) {
+      // key in value
+      console.log(`${key} => ${logEntry[key]}`);
+    }
+  }
+
+  // while & do-while loops
+  let j = 0; // initialVal = 0;
+
+  // while
+  while (j < 3) {
+    console.log(j); // But if j = 3 => 3 < 3
+    j++; // Not print!
+  }
+
+  // do-while
+  do {
+    console.log(j); // But if j = 3 => 3 < 3
+    j++; // It's ok print 3!
+  } while (j < 3);
 }
 
 attackBtn.addEventListener("click", attackHandler); // attack function
