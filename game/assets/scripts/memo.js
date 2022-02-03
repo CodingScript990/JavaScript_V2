@@ -32,3 +32,26 @@
    - Execute code as long as a condition is true
    - while (isLoggedIn) { ... }
 */
+
+// 2022.02.03
+/*
+    [break]
+
+    ex) for (let i = 0; i < 5; i++) {
+      if(i === 3) {
+        break;
+      }
+      console.log(i); // 0,1,2
+    }
+    - start 0 / stop 3 / result 0, 1, 2
+
+    [continue]
+
+    ex) for (let i = 0; i < 5; i++) {
+      if(i === 3) {
+        continue;
+      }
+      console.log(i); // 0,1,2,4
+    } 
+    - start 0 / stop 5 / result 0, 1, 2, 4
+*/

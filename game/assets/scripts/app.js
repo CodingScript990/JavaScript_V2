@@ -11,14 +11,33 @@ const LOG_EVENT_MONSTER_ATTACK = "MONSTER_ATTACK";
 const LOG_EVENT_PLAYER_HEAL = "PLAYER_HEAL";
 const LOG_EVENT_GAME_OVER = "GAME_OVER";
 
-const enteredValue = prompt("Maximum life for you and the monster.", "100"); // hp 100
-
-let chosenMaxLife = parseInt(enteredValue); // enteredValue (maximum hp)
 let battleLog = []; // Array value(attack)
+let lastLoggedEntry;
 
-// What if it happens for isNaN or 0 ?
-if (isNaN(chosenMaxLife) || chosenMaxLife <= 0) {
-  chosenMaxLife = 100;
+// MaxLife function
+function getMaxLifeValues() {
+  const enteredValue = prompt("Maximum life for you and the monster.", "100"); // hp 100
+
+  let parsedValue = parseInt(enteredValue); // enteredValue (maximum hp)
+
+  // What if it happens for isNaN or 0 ?
+  if (isNaN(parsedValue) || parsedValue <= 0) {
+    throw { message: "Invalid user input, not a number!" }; // Exception message
+  }
+  return parsedValue;
+}
+
+let chosenMaxLife; // maxLife fucntion
+
+try {
+  // true
+  chosenMaxLife = getMaxLifeValues(); // maxLife fucntion
+} catch (err) {
+  // err(false)
+  console.log(err);
+  chosenMaxLife = 100; // start hp 100
+  alert("You entered something wrong, default vlue of 100 was used.");
+  // throw err;
 }
 
 let currentMonsterHealth = chosenMaxLife; // Start Monster HP(100)
@@ -231,25 +250,40 @@ function printLogHandler() {
 
   // for 3. [for-in]
   for (const logEntry of battleLog) {
-    console.log(`#${i++}`); // increase
-    for (const key in logEntry) {
-      // key in value
-      console.log(`${key} => ${logEntry[key]}`);
+    if ((!lastLoggedEntry && lastLoggedEntry !== 0) || lastLoggedEntry < i) {
+      console.log(`#${i}`);
+      for (const key in logEntry) {
+        // key in value(inside)
+        console.log(`${key} => ${logEntry[key]}`);
+      }
+      lastLoggedEntry = i; // i value;
+      break;
     }
+    // outside
+    i++; // increase
   }
 
   // while & do-while loops
   let j = 0; // initialVal = 0;
 
   // while
+  /*
   while (j < 3) {
     console.log(j); // But if j = 3 => 3 < 3
     j++; // Not print!
   }
+  */
 
   // do-while
-  do {
-    console.log(j); // But if j = 3 => 3 < 3
+  outerWhile: do {
+    console.log("Outer : ", j); // But if j = 3 => 3 < 3
+    innerFor: for (let k = 0; k < 5; k++) {
+      if (k === 3) {
+        // break outerWhile;
+        // continue outerWhile; // Infinite loop
+      }
+      console.log("Inner : ", k);
+    }
     j++; // It's ok print 3!
   } while (j < 3);
 }
