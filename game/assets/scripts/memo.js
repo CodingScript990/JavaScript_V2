@@ -55,3 +55,36 @@
     } 
     - start 0 / stop 5 / result 0, 1, 2, 4
 */
+
+// 2022.02.04
+/*
+    [var VS let & const]
+
+    var : variable, Es5, Fucntion & Global scope
+    ex) var i = 1;
+        var i = 2;
+        result = 2; // anything change value 
+    
+    let : variable, Es6, Block Scope
+    ex) let j = 1;
+        let j = 2; // SyntaxError!! not use to same value name!(X : let i = something; let i = something; === Error)
+        j = 2; // But possible change value 👍 
+        result = 2;
+
+    const : constant, Es6, Block Scope
+    ex) const z = 1;
+        z = 2; // Error! not change value
+        result = error! || 1;(not change result value)
+
+    [Hoisting]
+
+    ex1)
+    console.log(userName);
+    var userName = 'Kim';
+    result => undefined
+
+    ex2) 
+    console.log(userName);
+    let userName = 'Kim';
+    result =>  ReferenceError(Before initialization)
+*/
