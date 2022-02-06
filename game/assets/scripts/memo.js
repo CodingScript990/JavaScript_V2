@@ -88,3 +88,59 @@
     let userName = 'Kim';
     result =>  ReferenceError(Before initialization)
 */
+
+// 2022.02.06
+
+/*
+    [Cod is parsed & compiled]
+
+    myCode(JS)                                Browser                                   Browser APIs
+
+    const name = 'Kim';       JS Parsing & Execution                        - Communication Bridges between JS and
+    alert(name); // Kim       - Interpreter(Starts exexcution!)               Logic built into the Browser
+                              - Compiler
+                                                      ↓
+                                                      ↓ [Compiled machine code]
+                                                      ↓
+                                              💻 My Computer 💻
+*/
+/*
+    [JS Engine]
+    - "The thing that executes u r code"
+    
+    ex) Heap || Stack
+
+    ✔ Heap
+    - Memory allocation : Stores data in ur system memor and manages access to it
+    
+    ex1)
+    function getName() {
+      return prompt('Your name : ', '');
+    }
+    function greet() {
+      const userName = getName();
+      console.log('Hello, ' + userName);
+    }
+
+    greet(); // "Kim" => Hello, Kim(result)
+
+    ✔ Stack
+    - Excution Context : Manages ur program flow(function calls and communication)
+
+    ex2)
+    (anonymous) [1] >> greet() [2] >> getName() [3] >> prompt() [4] (in)
+    prompt() [1] >> getName() [2] >> greet() [3] >> (anonymous) [4] (out)
+*/
+/*
+    [Primitive vs References]
+    
+    ✔ Primitive
+    - Strings, Numbers, Booleans, null, undefined, Symbol
+    - Stored in memory(nomally on Stack), variable stores value itself
+    - Copying a variable (= assign to different variable) copies the value
+
+    ✔ Reference Values
+    - All other objects('more expensive to create')
+    - Stored in memory(Heap), variable stores a pointer(address) to location in memory
+    - Copying a variable(= assign to different variable) copies the opinter / refernce
+*/
